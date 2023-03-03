@@ -1,5 +1,7 @@
+import * as S from "./Home.style";
+
 const Home = () => {
-  return <div>Home</div>;
+  return <S.Home></S.Home>;
 };
 
 export default Home;
