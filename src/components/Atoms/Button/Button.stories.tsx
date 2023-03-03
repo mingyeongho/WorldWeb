@@ -1,25 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ChangeEvent } from "react";
 
-import Form from "./Form";
+import Button from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
-const meta: Meta<typeof Form> = {
-  title: "Molecules/Form",
-  component: Form,
+const meta: Meta<typeof Button> = {
+  title: "Atoms/Button",
+  component: Button,
   tags: ["autodocs"],
 };
 
 export default meta;
-type Story = StoryObj<typeof Form>;
+type Story = StoryObj<typeof Button>;
 
 // More on writing stories with args: https://storybook.js.org/docs/7.0/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    inputProps: {
-      value: "",
-      placeholder: "Placeholder (...)",
-      onChange: (e: ChangeEvent<HTMLInputElement>) => {},
-    },
+    label: "Button",
+    type: "button",
   },
 };
