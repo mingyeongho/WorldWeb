@@ -31,33 +31,12 @@ export const NationWrapper = styled.div`
   padding: 4px;
 `;
 
-export const Continent = styled.span`
-  font-size: 1.1rem;
-  font-weight: bolder;
-`;
-
-export const Like = styled.span``;
-
-export const Flag = styled.span`
-  font-size: 3rem;
-`;
-
 export const NationInfoWrapper = styled.div`
   flex: 1;
   overflow: hidden;
 `;
 
-export const Name = styled.span`
-  font-size: 1.1rem;
-`;
-
 export const Languages = styled.div`
   display: flex;
   gap: 4px;
-`;
-
-export const Language = styled.span`
-  font-size: 0.875rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 `;

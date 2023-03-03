@@ -1,3 +1,5 @@
+import Span from "../../Atoms/Span/Span";
+import Emoji from "../../Atoms/Emoji/Emoji";
 import * as S from "./Country.style";
 
 interface CountryProps {
@@ -20,16 +22,16 @@ const Country = ({ name, continent, languages, emoji }: CountryProps) => {
   return (
     <S.Country continent={continent.code}>
       <S.ContinentWrapper continent={continent.code}>
-        <S.Continent>{continent.name}</S.Continent>
-        <S.Like>{isLike ? "💛" : "🤍"}</S.Like>
+        <Span label={continent.name} fontWeight="bolder" />
+        <Emoji label={isLike ? "💛" : "🤍"} />
       </S.ContinentWrapper>
       <S.NationWrapper>
-        <S.Flag>{emoji}</S.Flag>
+        <Emoji label={emoji} size="large" />
         <S.NationInfoWrapper>
-          <S.Name>{name}</S.Name>
+          <Span label={name} size="large" />
           <S.Languages>
             {languages.map((language, idx) => (
-              <S.Language key={idx}>{language.name}</S.Language>
+              <Span key={idx} label={language.name} size="small" />
             ))}
           </S.Languages>
         </S.NationInfoWrapper>

@@ -1,3 +1,4 @@
+import { MockedProvider } from "@apollo/client/testing";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
@@ -11,6 +12,10 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    apolloClient: {
+      MockedProvider,
+      // any props you want to pass to MockedProvider on every story
     },
   },
 };
