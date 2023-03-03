@@ -19,4 +19,9 @@ export const GlobalStyle = createGlobalStyle`
         align-items: center;
         background-color: ${Palette.Primary};
     }
+
+    a {
+        text-decoration: none;
+        color: inherit
+    }
 `;

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ChangeEvent } from "react";
 
 import TabBar from "./TabBar";
 

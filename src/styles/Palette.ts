@@ -5,6 +5,7 @@ export const Palette = {
 };
 
 export const ContinentPalette = {
+  ALL: "#0097FC",
   AS: "#AA75E7",
   AF: "#6A7F85",
   NA: "#8386EE",
