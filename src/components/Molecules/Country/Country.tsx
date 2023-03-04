@@ -2,6 +2,7 @@ import Span from "../../Atoms/Span/Span";
 import Emoji from "../../Atoms/Emoji/Emoji";
 import * as S from "./Country.style";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 interface CountryProps {
   code: string;
@@ -18,10 +19,16 @@ interface CountryProps {
 }
 
 const Country = ({ code, name, continent, languages, emoji }: CountryProps) => {
+  const router = useRouter();
   const [isLike, setIsLike] = useState(false);
 
-  const onClickLike = () => {
+  const onClickLike = (e: React.MouseEvent) => {
     setIsLike((prev) => !prev);
+    e.stopPropagation();
+  };
+
+  const onClickCountry = () => {
+    router.push(`/${code}`);
   };
 
   useEffect(() => {
@@ -69,7 +76,7 @@ const Country = ({ code, name, continent, languages, emoji }: CountryProps) => {
   }, [isLike]);
 
   return (
-    <S.Country continent={continent.code}>
+    <S.Country continent={continent.code} onClick={onClickCountry}>
       <S.ContinentWrapper continent={continent.code}>
         <Span label={continent.name} fontWeight="bolder" />
         <Emoji label={isLike ? "💛" : "🤍"} onClick={onClickLike} />

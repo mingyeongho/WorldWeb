@@ -13,4 +13,5 @@ export const ContinentPalette = {
   OC: "#D8664F",
   EU: "#DC7CA6",
   AN: "#6D9DBE",
+  Like: "black",
 };

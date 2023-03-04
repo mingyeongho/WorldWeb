@@ -2,7 +2,7 @@ import { ContinentPalette } from "../../../styles/Palette";
 import styled from "styled-components";
 
 interface Props {
-  continent: "ALL" | "AS" | "EU" | "SA" | "NA" | "AF" | "OC" | "AN";
+  continent: "ALL" | "AS" | "EU" | "SA" | "NA" | "AF" | "OC" | "AN" | "Like";
   isFocus: boolean;
 }
 

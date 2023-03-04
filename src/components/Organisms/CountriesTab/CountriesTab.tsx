@@ -5,14 +5,22 @@ import { useRouter } from "next/router";
 import TabBar from "../../Molecules/TabBar/TabBar";
 import Countries from "../Countries/Countries";
 import * as S from "./CountriesTab.style";
+import likeCountries from "@/gql/likeCountries";
 
 const CountriesTab = () => {
   const { query } = useRouter();
-  const { data, loading } = useQuery(
-    query.continent === "All" || query.continent === undefined
-      ? allCountries
-      : getCountries({ continent: query.continent as string })
-  );
+
+  const queryArg = () => {
+    switch (query.continent) {
+      case "All":
+      case undefined:
+        return allCountries;
+
+      default:
+        return getCountries({ continent: query.continent as string });
+    }
+  };
+  const { data, loading } = useQuery(queryArg());
 
   return (
     <S.CountriesTab>

@@ -5,7 +5,7 @@ interface EmojiProps {
 
   size?: "small" | "medium" | "large" | "x-large";
 
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 const Emoji = ({ label, size = "medium", onClick }: EmojiProps) => {

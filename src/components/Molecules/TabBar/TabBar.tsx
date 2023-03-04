@@ -4,39 +4,43 @@ import * as S from "./TabBar.style";
 
 const Menu: {
   label: string;
-  code: "ALL" | "AS" | "EU" | "SA" | "NA" | "AF" | "OC" | "AN";
+  code: "ALL" | "AS" | "EU" | "SA" | "NA" | "AF" | "OC" | "AN" | "Like";
 }[] = [
   {
     label: "ALL",
     code: "ALL",
   },
   {
-    label: "Asia",
+    label: "AS",
     code: "AS",
   },
   {
-    label: "Europe",
+    label: "EU",
     code: "EU",
   },
   {
-    label: "North America",
+    label: "NA",
     code: "NA",
   },
   {
-    label: "South America",
+    label: "SA",
     code: "SA",
   },
   {
-    label: "Africa",
+    label: "AF",
     code: "AF",
   },
   {
-    label: "Oceania",
+    label: "OC",
     code: "OC",
   },
   {
-    label: "Antarctica",
+    label: "AN",
     code: "AN",
+  },
+  {
+    label: "Like",
+    code: "Like",
   },
 ];
 

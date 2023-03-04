@@ -11,6 +11,7 @@ export const Country = styled.div<Props>`
   border: 2px solid ${({ continent }) => ContinentPalette[continent]};
   width: 180px;
   height: 110px;
+  cursor: pointer;
 `;
 
 export const ContinentWrapper = styled.div<Props>`
