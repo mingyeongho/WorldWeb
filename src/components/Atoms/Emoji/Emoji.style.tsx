@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface EmojiProps {
-  size: "small" | "medium" | "large";
+  size: "small" | "medium" | "large" | "x-large";
 }
 
 export const Emoji = styled.span<EmojiProps>`
@@ -13,6 +13,8 @@ export const Emoji = styled.span<EmojiProps>`
         return "1rem";
       case "large":
         return "3rem";
+      case "x-large":
+        return "5rem";
     }
   }};
 `;

@@ -9,7 +9,12 @@ interface InputProps {
 
 const Input = ({ value, onChange, placeholder }: InputProps) => {
   return (
-    <S.Input value={value} onChange={onChange} placeholder={placeholder} />
+    <S.Input
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      maxLength={2}
+    />
   );
 };
 

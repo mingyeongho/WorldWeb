@@ -3,7 +3,7 @@ import * as S from "./Emoji.style";
 interface EmojiProps {
   label: string;
 
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "x-large";
 }
 
 const Emoji = ({ label, size = "medium" }: EmojiProps) => {
