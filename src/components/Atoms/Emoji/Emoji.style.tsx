@@ -5,6 +5,7 @@ interface EmojiProps {
 }
 
 export const Emoji = styled.span<EmojiProps>`
+  cursor: pointer;
   font-size: ${({ size }) => {
     switch (size) {
       case "small":

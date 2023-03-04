@@ -1,6 +1,7 @@
 import Span from "../../Atoms/Span/Span";
 import Emoji from "../../Atoms/Emoji/Emoji";
 import * as S from "./Country.style";
+import { useEffect, useState } from "react";
 
 interface CountryProps {
   code: string;
@@ -16,14 +17,62 @@ interface CountryProps {
   emoji: string;
 }
 
-const Country = ({ name, continent, languages, emoji }: CountryProps) => {
-  const isLike = localStorage.getItem("likeCountry");
+const Country = ({ code, name, continent, languages, emoji }: CountryProps) => {
+  const [isLike, setIsLike] = useState(false);
+
+  const onClickLike = () => {
+    setIsLike((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const getLikeCountries = localStorage.getItem("likeCountries");
+
+    if (getLikeCountries && getLikeCountries !== "{}") {
+      // localStorage가 존재할 경우
+      const arrGetLikeCountries: string[] = JSON.parse(getLikeCountries);
+      const isExistCountry = arrGetLikeCountries.includes(code);
+      if (isExistCountry) {
+        setIsLike(true);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isLike) {
+      const getLikeCountries = localStorage.getItem("likeCountries");
+
+      if (getLikeCountries) {
+        const arrGetLikeCountries: string[] = JSON.parse(getLikeCountries);
+        const uniqLikeCountries = [...new Set(arrGetLikeCountries).add(code)];
+        localStorage.setItem(
+          "likeCountries",
+          JSON.stringify(uniqLikeCountries)
+        );
+      } else {
+        localStorage.setItem("likeCountries", JSON.stringify([code]));
+      }
+    } else {
+      const getLikeCountries = localStorage.getItem("likeCountries");
+
+      if (getLikeCountries) {
+        const arrGetLikeCountries: string[] = JSON.parse(getLikeCountries);
+
+        const uniqLikeCountries = new Set(arrGetLikeCountries);
+        uniqLikeCountries.delete(code);
+
+        localStorage.setItem(
+          "likeCountries",
+          JSON.stringify([...uniqLikeCountries])
+        );
+      }
+    }
+  }, [isLike]);
 
   return (
     <S.Country continent={continent.code}>
       <S.ContinentWrapper continent={continent.code}>
         <Span label={continent.name} fontWeight="bolder" />
-        <Emoji label={isLike ? "💛" : "🤍"} />
+        <Emoji label={isLike ? "💛" : "🤍"} onClick={onClickLike} />
       </S.ContinentWrapper>
       <S.NationWrapper>
         <Emoji label={emoji} size="large" />
